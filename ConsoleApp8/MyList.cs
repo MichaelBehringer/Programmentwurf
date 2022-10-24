@@ -8,22 +8,32 @@ namespace ConsoleApp8
 {
     internal class MyList<T> : List<T> where T : MyIdentify
     {
-        //public void Add(T value)
-        //{
-        //    base.Add(value);
-        //}
-
         public MyList<T> getPrimes()
         {
             MyList<T> outputList = new MyList<T>();
-            foreach (T line in this)
+            foreach (T element in this)
             {
-                if (line.Id == 7)
+                if (isPrime(element.Id, 2))
                 {
-                    outputList.Add(line);
+                    outputList.Add(element);
                 }
             }
             return outputList;
+        }
+
+        private static bool isPrime(int n, int i)
+        {
+
+            // Base cases
+            if (n <= 2)
+                return (n == 2) ? true : false;
+            if (n % i == 0)
+                return false;
+            if (i * i > n)
+                return true;
+
+            // Check for next divisor
+            return isPrime(n, i + 1);
         }
     }
 }

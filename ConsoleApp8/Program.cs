@@ -10,45 +10,26 @@ namespace ConsoleApp8
     {
         static void Main(string[] args)
         {
-            //List<Pokemon> pokedex = new List<Pokemon>();
-            ////pokedex.Add(new Pokemon(1, "Bisasam", "Pflanze", false));
-            ////pokedex.Add(new Pokemon(4, "Glumanda", "Feuer", false));
-            ////pokedex.Add(new Pokemon(5, "Glutexo", "Feuer", false));
-            ////pokedex.Add(new Pokemon(7, "Schiggy", "Wasser", false));
-            ////pokedex.Add(new Pokemon(11, "Safcon", "Kaefer", false));
-            ////pokedex.Add(new Pokemon(12, "Smettbo", "Kaefer", false));
-            ////pokedex.Add(new Pokemon(25, "Pikachu", "Elektro", false));
-            ////pokedex.Add(new Pokemon(139, "Dragoran", "Drache", false));
-            ////pokedex.Add(new Pokemon(263, "Zigzachs", "Normal", false));
-            ////pokedex.Add(new Pokemon(865, "Lauchzelot", "Kampf", false));
-            //pokedex = generatePokedexFromExcel("pokemon.csv");
-            //List<Pokemon> primePokedex = generatePrimePokedex(pokedex);
-            //primePokedex.ForEach(Console.WriteLine);
-            ////File.WriteAllLines("ausgabe2.csv", generateOutputText(pokedex));
-            ///
-            MyList<Pokemon> myPokedex = new MyList<Pokemon>();
-            myPokedex.Add(new Pokemon(1, "Bisasam", "Pflanze", false));
-            myPokedex.Add(new Pokemon(4, "Glumanda", "Feuer", false));
-            myPokedex.Add(new Pokemon(5, "Glutexo", "Feuer", false));
-            myPokedex.Add(new Pokemon(7, "Schiggy", "Wasser", false));
-            myPokedex.Add(new Pokemon(11, "Safcon", "Kaefer", false));
-            myPokedex.Add(new Pokemon(12, "Smettbo", "Kaefer", false));
+            MyList<Pokemon> myPokedex = generatePokedexFromExcel("pokemonSmall.csv");
+            myQueue<Digimon> myDigidex = generateDigiedexFromExcel("digimonSmall.csv");
 
+            //Method 1
+            Console.WriteLine("--- Method 1 ---");
             getPrimes(myPokedex);
-
-            //myPokedex.getPrimes().ForEach(Console.WriteLine);
-
-
-            myQueue<Digimon> myDigidex = new myQueue<Digimon>();
-            myDigidex.Enqueue(new Digimon(1, "Kuramon", 590));
-            myDigidex.Enqueue(new Digimon(2, "Digi2", 592));
-            myDigidex.Enqueue(new Digimon(3, "Digi3", 593));
-            myDigidex.Enqueue(new Digimon(4, "Digi4", 594));
-            myDigidex.Enqueue(new Digimon(5, "Digi5", 595));
-            myDigidex.Enqueue(new Digimon(6, "Digi6", 596));
-            myDigidex.Enqueue(new Digimon(7, "Digi7", 597));
-
             getPrimes(myDigidex);
+
+            Console.WriteLine("\n\n");
+
+            //Method 2
+            Console.WriteLine("--- Method 2 ---");
+            foreach (Pokemon pkm in myPokedex.getPrimes())
+            {
+                Console.WriteLine(pkm);
+            }
+            foreach (Digimon dig in myDigidex.getPrimes())
+            {
+                Console.WriteLine(dig);
+            }
         }
 
         static void getPrimes(IEnumerable<MyIdentify> a)
@@ -62,16 +43,9 @@ namespace ConsoleApp8
             }
         }
 
-        static List<string> generateOutputText(List<Pokemon> pokedex)
+        static MyList<Pokemon> generatePokedexFromExcel(String path)
         {
-            List<string> outputText = new List<string>();
-            pokedex.ForEach(pkm => outputText.Add(pkm.ToCsv()));
-            return outputText;
-        }
-
-        static List<Pokemon> generatePokedexFromExcel(String path)
-        {
-            List<Pokemon> pokedex = new List<Pokemon>();
+            MyList<Pokemon> pokedex = new MyList<Pokemon>();
             string[] csvPokedex = File.ReadAllLines(path);
             foreach(string csvPokemon in csvPokedex)
             {
@@ -79,6 +53,18 @@ namespace ConsoleApp8
                 pokedex.Add(new Pokemon(Convert.ToInt16(strings[0]), strings[1], strings[2], Convert.ToBoolean(strings[3])));
             }
             return pokedex;
+        }
+
+        static myQueue<Digimon> generateDigiedexFromExcel(String path)
+        {
+            myQueue<Digimon> digidex = new myQueue<Digimon>();
+            string[] csvDigiedex = File.ReadAllLines(path);
+            foreach (string csvDigimon in csvDigiedex)
+            {
+                string[] strings = csvDigimon.Split(';');
+                digidex.Enqueue(new Digimon(Convert.ToInt16(strings[0]), strings[1], Convert.ToInt16(strings[2])));
+            }
+            return digidex;
         }
 
         static List<Pokemon> generatePrimePokedex(List<Pokemon> inputPokedex)
