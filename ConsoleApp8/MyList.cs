@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp8
 {
-    internal class MyList<T> : List<T> where T : MyIdentify
+    public class MyList<T> : List<T> where T : MyIdentify
     {
         public MyList<T> getPrimes()
         {

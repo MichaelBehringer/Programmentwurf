@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp8
 {
-    internal interface MyIdentify
+    public interface MyIdentify
     {
         int Id { get; }
     }

@@ -11,7 +11,7 @@ namespace ConsoleApp8
         static void Main(string[] args)
         {
             MyList<Pokemon> myPokedex = generatePokedexFromExcel("pokemonSmall.csv");
-            myQueue<Digimon> myDigidex = generateDigiedexFromExcel("digimonSmall.csv");
+            MyQueue<Digimon> myDigidex = generateDigiedexFromExcel("digimonSmall.csv");
 
             //Method 1
             Console.WriteLine("--- Method 1 ---");
@@ -55,9 +55,9 @@ namespace ConsoleApp8
             return pokedex;
         }
 
-        static myQueue<Digimon> generateDigiedexFromExcel(String path)
+        static MyQueue<Digimon> generateDigiedexFromExcel(String path)
         {
-            myQueue<Digimon> digidex = new myQueue<Digimon>();
+            MyQueue<Digimon> digidex = new MyQueue<Digimon>();
             string[] csvDigiedex = File.ReadAllLines(path);
             foreach (string csvDigimon in csvDigiedex)
             {

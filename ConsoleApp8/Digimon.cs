@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp8
 {
-    internal class Digimon : MyIdentify
+    public class Digimon : MyIdentify
     {
         public int Id { get; set; }
         public string Name { get; set; }

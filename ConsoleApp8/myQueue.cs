@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp8
 {
-    internal class myQueue<T> : Queue<T> where T : MyIdentify
+    public class MyQueue<T> : Queue<T> where T : MyIdentify
     {
-        public myQueue<T> getPrimes()
+        public MyQueue<T> getPrimes()
         {
-            myQueue<T> outputQueue = new myQueue<T>();
+            MyQueue<T> outputQueue = new MyQueue<T>();
             foreach (T element in this)
             {
                 if (isPrime(element.Id, 2))

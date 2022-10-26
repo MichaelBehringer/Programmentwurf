@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp8
 {
-    internal class Pokemon : MyIdentify
+    public class Pokemon : MyIdentify
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -15,6 +15,10 @@ namespace ConsoleApp8
 
         public Pokemon(int id, string name, string type, bool legendary)
         {
+            if(id<0)
+            {
+                throw new MyInvalidIdException("ID has to be greater than 0");
+            }
             Id = id;
             Name = name;
             Type = type;
