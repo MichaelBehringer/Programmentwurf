@@ -25,11 +25,6 @@ namespace ConsoleApp8
             Legendary = legendary;
         }
 
-        public string ToCsv()
-        {
-            return Id + ";" + Name + ";" + Type + ";" + Legendary;
-        }
-
         public override string ToString() 
         {
             return "Pokemon - " + Id.ToString("000") + " - " + Name + " " + Type + ": " + (Legendary ? "Ja" : "Nein");

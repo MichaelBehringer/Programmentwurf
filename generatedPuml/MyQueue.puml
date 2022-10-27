@@ -1,0 +1,8 @@
+@startuml
+class "MyQueue`1"<T> {
+    + getPrimes() : MyQueue<T>
+}
+class "Queue`1"<T> {
+}
+"Queue`1" "<T>" <|-- "MyQueue`1"
+@enduml

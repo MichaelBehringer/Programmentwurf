@@ -1,0 +1,6 @@
+@startuml
+class MyFileHelper {
+    + {static} generatePokedexFromExcel(path:String) : MyList<Pokemon>
+    + {static} generateDigiedexFromExcel(path:String) : MyQueue<Digimon>
+}
+@enduml

@@ -1,0 +1,7 @@
+@startuml
+class MyPrimeHelper {
+    + {static} getPrimeCollection(inputCollection:IEnumerable<MyIdentify>) : IEnumerable<MyIdentify>
+    + {static} istPrimzahl(zahl:int) : bool
+    + {static} istPrimzahl(zahl:int, temp:int) : bool
+}
+@enduml

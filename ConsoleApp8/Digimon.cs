@@ -14,14 +14,13 @@ namespace ConsoleApp8
 
         public Digimon(int id, string name, int health)
         {
+            if (id < 0)
+            {
+                throw new MyInvalidIdException("ID has to be greater than 0");
+            }
             Id = id;
             Name = name;
             Health = health;
-        }
-
-        public string ToCsv()
-        {
-            return Id + ";" + Name + ";" + Health;
         }
 
         public override string ToString()
