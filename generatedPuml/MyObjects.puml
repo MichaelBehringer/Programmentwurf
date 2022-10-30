@@ -1,0 +1,22 @@
+@startuml
+class Pokemon {
+    + Id : int <<get>> <<set>>
+    + Name : string <<get>> <<set>>
+    + Type : string <<get>> <<set>>
+    + Legendary : bool <<get>> <<set>>
+    + Pokemon(id:int, name:string, type:string, legendary:bool)
+    + <<override>> ToString() : string
+}
+class Digimon {
+    + Id : int <<get>> <<set>>
+    + Name : string <<get>> <<set>>
+    + Health : int <<get>> <<set>>
+    + Digimon(id:int, name:string, health:int)
+    + <<override>> ToString() : string
+}
+interface MyIdentify {
+    Id : int <<get>>
+}
+MyIdentify <|.. Digimon
+MyIdentify <|.. Pokemon
+@enduml

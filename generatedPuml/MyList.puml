@@ -1,8 +1,0 @@
-@startuml
-class "MyList`1"<T> {
-    + getPrimes() : MyList<T>
-}
-class "List`1"<T> {
-}
-"List`1" "<T>" <|-- "MyList`1"
-@enduml

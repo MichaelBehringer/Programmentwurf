@@ -1,5 +1,0 @@
-@startuml
-interface MyIdentify {
-    Id : int <<get>>
-}
-@enduml

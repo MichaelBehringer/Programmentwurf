@@ -1,0 +1,21 @@
+@startuml
+class "MyList" {
+    + getPrimes() : MyList
+}
+class "List" {
+}
+"List" <|-- "MyList"
+
+class "MyQueue" {
+    + getPrimes() : MyQueue
+}
+class "Queue" {
+}
+"Queue" <|-- "MyQueue"
+
+interface MyIdentify {
+    Id : int <<get>>
+}
+MyIdentify <|.. MyQueue
+MyIdentify <|.. MyList
+@enduml

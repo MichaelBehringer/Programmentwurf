@@ -1,9 +1,9 @@
 @startuml
 class MyInvalidIdException {
     + MyInvalidIdException()
-    + MyInvalidIdException(message:string?)
-    + MyInvalidIdException(message:string?, innerException:Exception?)
-    # MyInvalidIdException(info:SerializationInfo, context:StreamingContext)
+    + MyInvalidIdException(string)
+    + MyInvalidIdException(string, Exception)
+    # MyInvalidIdException(SerializationInfo, StreamingContext)
 }
 Exception <|-- MyInvalidIdException
 @enduml
