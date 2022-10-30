@@ -13,11 +13,14 @@ namespace ConsoleApp8
         public string Type { get; set; }
         public bool Legendary { get; set; }
 
+        //Constructor for Pokemon
+        //input -  id: integer, name: string, type: string, legendary: boolean
+        //output - pokemon: Pokemon
         public Pokemon(int id, string name, string type, bool legendary)
         {
-            if(id<0)
+            if(id<0 || id>999)
             {
-                throw new MyInvalidIdException("ID has to be greater than 0");
+                throw new MyInvalidIdException("ID has to be greater than 0 and lower than 999");
             }
             Id = id;
             Name = name;

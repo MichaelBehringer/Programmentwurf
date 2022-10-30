@@ -8,6 +8,9 @@ namespace ConsoleApp8
 {
     public class MyQueue<T> : Queue<T> where T : MyIdentify
     {
+        //Generates MyQueue only with prime numbers
+        //input  /
+        //output - primeMyQueue: MyQueue<T>
         public MyQueue<T> getPrimes()
         {
             MyQueue<T> outputQueue = new MyQueue<T>();

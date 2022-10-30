@@ -8,6 +8,9 @@ namespace ConsoleApp8
 {
     internal class MyFileHelper
     {
+        //Generates MyList of Pokemon from CSV-File
+        //input -  pathToFile: string
+        //output - MyList of Pokemon
         public static MyList<Pokemon> generatePokedexFromExcel(String path)
         {
             MyList<Pokemon> pokedex = new MyList<Pokemon>();
@@ -39,10 +42,19 @@ namespace ConsoleApp8
                     Console.WriteLine("Eine ID der Eingabedatei Pokemon ist kleiner als 0");
                     return new MyList<Pokemon>();
                 }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Unbestimmter Fehler der Eingabedatei Pokemon aufgetreten");
+                    Console.WriteLine(e.Message);
+                    return new MyList<Pokemon>();
+                }
             }
             return pokedex;
         }
 
+        //Generates MyQueue of Digimon from CSV-File
+        //input -  pathToFile: string
+        //output - MyQueue of Digimon
         public static MyQueue<Digimon> generateDigiedexFromExcel(String path)
         {
             MyQueue<Digimon> digidex = new MyQueue<Digimon>();
@@ -72,6 +84,12 @@ namespace ConsoleApp8
                 catch (MyInvalidIdException e)
                 {
                     Console.WriteLine("Eine ID der Eingabedatei Digimon ist kleiner als 0");
+                    return new MyQueue<Digimon>();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Unbestimmter Fehler der Eingabedatei Digimon aufgetreten");
+                    Console.WriteLine(e.Message);
                     return new MyQueue<Digimon>();
                 }
             }

@@ -8,6 +8,9 @@ namespace ConsoleApp8
 {
     public class MyList<T> : List<T> where T : MyIdentify
     {
+        //Generates MyList only with prime numbers
+        //input  /
+        //output - primeMyList: MyList<T>
         public MyList<T> getPrimes()
         {
             MyList<T> outputList = new MyList<T>();

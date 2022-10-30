@@ -8,6 +8,9 @@ namespace ConsoleApp8
 {
     public class MyPrimeHelper
     {
+        //Generates IEnumerable Container only with prime numbers
+        //input -  inputCollection: IEnumerable<MyIdentify>
+        //output - primeCollection: IEnumerable<MyIdentify>
         public static IEnumerable<MyIdentify> getPrimeCollection(IEnumerable<MyIdentify> inputCollection)
         {
             foreach (MyIdentify identify in inputCollection)
@@ -19,6 +22,9 @@ namespace ConsoleApp8
             }
         }
 
+        //Checks if number is prime number
+        //input -  number: integer
+        //output - isPrimeNumber: boolean
         public static bool istPrimzahl(int zahl)
         {
             if (zahl <= 1)
@@ -28,7 +34,10 @@ namespace ConsoleApp8
             return istPrimzahl(zahl, 2);
         }
 
-        public static bool istPrimzahl(int zahl, int temp)
+        //Checks if number is prime number, recursive
+        //input -  number: integer, tempNumber: integer
+        //output - isPrimeNumber: boolean
+        private static bool istPrimzahl(int zahl, int temp)
         {
             if (zahl % temp == 0)
             {
